@@ -1,5 +1,6 @@
 import { getProduct } from "@/services/product";
 import { getProductTwo } from "@/services/productTwo";
+import Image from "next/image";
 
 export default async function productDetail({
   params,
@@ -15,10 +16,13 @@ export default async function productDetail({
   return (
     <div className="pt-24 w-[80vw] px-[2vw]">
       <div className="group w-full flex gap-[2vw] ">
-        <img
-          // alt={product.imageAlt}
+        <Image
+          alt={product.data.title}
           src={product.data.image}
           className="aspect-square w-96 rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8"
+          width={500}
+          height={500}
+          loading="lazy"
         />
         <div>
           <h3 className="mt-4 text-sm text-gray-700 font-semibold font-sans text-[2vw]">
@@ -31,7 +35,7 @@ export default async function productDetail({
             {product.data.description}
           </p>
           <div className="py-[1vw]">
-            Category: 
+            Category:
             <span> {product.data.category}</span>
           </div>
         </div>

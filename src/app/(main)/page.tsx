@@ -1,6 +1,7 @@
 "use client";
 import Hero from "@/components/hero/Hero";
 import Overview from "@/components/overview/Overview";
+import { Metadata } from "next";
 import { useEffect, useState } from "react";
 
 export default function Home() {

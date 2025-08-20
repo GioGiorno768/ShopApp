@@ -1,6 +1,7 @@
 import Modal from "@/components/Modal";
 import { getProduct } from "@/services/product";
 import { getProductTwo } from "@/services/productTwo";
+import Image from "next/image";
 
 export default async function productDetail({
   params,
@@ -16,10 +17,13 @@ export default async function productDetail({
   return (
     <Modal>
       <div className="group bg-white p-3 rounded-md">
-        <img
-          // alt={product.imageAlt}
+        <Image
+          alt={product.data.title}
           src={product.data.image}
           className="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8"
+          width={500}
+          height={500}
+          loading="lazy"
         />
         <h3 className="mt-4 text-sm text-gray-700">{product.data.title}</h3>
         <p className="mt-1 text-lg font-medium text-gray-900">
